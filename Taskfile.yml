@@ -1,0 +1,11 @@
+version: "3"
+
+tasks:
+  build:
+    dir: module
+    desc: Builds all binaries for upsteam
+    cmds:
+      - nix-build
+  pre-commit:
+    cmds:
+      - pre-commit run -a

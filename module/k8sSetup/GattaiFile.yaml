@@ -1,0 +1,29 @@
+version: v1
+
+repos:
+  git_src:
+    src: git
+    config:
+      url: https://github.com/tr8team/gattai.git
+      branch: main
+      dir: gattai_actions
+
+enforce_targets:
+  kubeconfig_files:
+    - dev_sg
+targets:
+  kubeconfig_secrets:
+    dev_sg:
+      action: git_src/aws/list_all_secret_by_property
+      vars:
+        profile: dev
+        region: ap-southeast-1
+        filter: kubeconfig_secret
+        property: Name
+  kubeconfig_files:
+    dev_sg:
+      action: git_src/write_multi_secrets
+      vars:
+        folder: ~/.kube/configs
+        secret_names: "{{ fetch .Targets.kubeconfig_secrets.dev_sg }}"
+        profile: dev
