@@ -62,6 +62,7 @@ with modules;
     k8s-setup = "gt-k8s-setup";
     kctx = "kubectx";
     kns = "kubens";
+    update-nix = "nix flake update --flake ~/.config/home-manager";
     git-prev-msg = "cat .git/COMMIT_EDITMSG";
     git-recommit = "git commit -t ./.git/COMMIT_EDITMSG";
     git-retry = "git commit -F ./.git/COMMIT_EDITMSG";
