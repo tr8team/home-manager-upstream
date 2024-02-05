@@ -1,4 +1,4 @@
-{ trivialBuilders, nixpkgs ? import <nixpkgs> { } }:
+{ trivialBuilders, nixpkgs, atomi }:
 let name = "gt-k8s-setup"; in
 let version = "1.7.0"; in
 let script = builtins.readFile ./default.sh; in
@@ -15,7 +15,7 @@ trivialBuilders.writeShellApplication {
   runtimeShell = "${nixpkgs.bash}/bin/bash";
   runtimeInputs = (
     with nixpkgs;
-    with import (fetchTarball "https://github.com/kirinnee/test-nix-repo/archive/refs/tags/v13.0.0.tar.gz");
+    with atomi;
     [ gattai figlet gawk coreutils kubectl awscli2 jq ]
   );
   text = ''

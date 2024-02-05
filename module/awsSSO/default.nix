@@ -1,4 +1,4 @@
-{ trivialBuilders, awsExportCreds, nixpkgs ? import <nixpkgs> { } }:
+{ trivialBuilders, awsExportCreds, nixpkgs }:
 
 let name = "gt-aws-login"; in
 let version = "1.7.0"; in

@@ -1,4 +1,4 @@
-{ trivialBuilders, nixpkgs ? import <nixpkgs> { } }:
+{ trivialBuilders, nixpkgs }:
 let name = "gt-ci-enter"; in
 let version = "1.0.0"; in
 let script = builtins.readFile ./default.sh; in
