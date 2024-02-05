@@ -4,7 +4,6 @@ let modules = import ./module/default.nix { inherit nixpkgs atomi; }; in
 with modules;
 {
   tools = [
-    autoUpdater
     awsLogin
     k8sSetup
     kubectx
@@ -60,9 +59,6 @@ with modules;
     stop-ci = "aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters 'Name=tag:LPSD,Values=runner.systems.github-runner.instance' --output text | xargs aws ec2 stop-instances --instance-ids | cat";
     awsl = "gt-aws-login";
     k8s-setup = "gt-k8s-setup";
-    updateNix = "gotrade-nix-autoupdater \"$HOME/home-manager-config/upstream.nix\" ssh  && home-manager switch --impure --flake $HOME/home-manager-config#$USER && source ~/.zshrc";
-    updateNixHttps = "gotrade-nix-autoupdater \"$HOME/home-manager-config/upstream.nix\" https  && home-manager switch --impure --flake $HOME/home-manager-config#$USER && source ~/.zshrc";
-    testUpdateNix = "gotrade-nix-autoupdater \"$HOME/gotrade-home-manager/upstream.nix\" ssh  && home-manager switch --impure --flake $HOME/gotrade-home-manager#$USER && source ~/.zshrc";
     kctx = "kubectx";
     kns = "kubens";
   };
