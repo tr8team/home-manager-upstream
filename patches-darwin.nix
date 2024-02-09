@@ -4,7 +4,6 @@ let modules = import ./module/default.nix { inherit nixpkgs atomi; }; in
 with modules;
 {
   tools = [
-    autoUpdater
     awsLogin
     k8sSetup
     kubectx
