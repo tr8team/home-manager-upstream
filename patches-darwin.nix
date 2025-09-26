@@ -65,6 +65,8 @@ with modules;
     git-prev-msg = "cat .git/COMMIT_EDITMSG";
     git-recommit = "git commit -t ./.git/COMMIT_EDITMSG";
     git-retry = "git commit -F ./.git/COMMIT_EDITMSG";
+    shell-prod-indo-indo-octane = "kubectx p-indo-primary-eks &&  k exec -n gotrade-product -it deployments/indo-octane -- sh";
+    shell-prod-admin-chaile-octane = "kubectx admin-primary-eks && k exec -n gotrade-product -it deployments/charlie-octane -- sh";
   };
 
 }
