@@ -10,6 +10,7 @@ with modules;
     kubectx
     awscli2
     ciEnter
+    cfZerotrust
   ];
 
   preZSH = ''
@@ -61,6 +62,7 @@ with modules;
     update-nix = "nix flake update --flake ~/.config/home-manager";
     alil = "gt-alicloud-login";
     awsl = "gt-aws-login";
+    cfzt = "gt-cf-zerotrust";
     k8s-setup = "gt-k8s-setup";
     kctx = "kubectx";
     kns = "kubens";

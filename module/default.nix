@@ -9,4 +9,5 @@ let trivialBuilders = import ./trivialBuilders.nix { inherit lib stdenv stdenvNo
   alicloudLogin = import ./alicloudLogin/default.nix { inherit nixpkgs trivialBuilders; };
   k8sSetup = import ./k8sSetup/default.nix { inherit nixpkgs trivialBuilders atomi; };
   ciEnter = import ./ciEnter/default.nix { inherit nixpkgs trivialBuilders; };
+  cfZerotrust = import ./cfZerotrust/default.nix { inherit nixpkgs trivialBuilders; };
 }

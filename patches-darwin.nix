@@ -10,6 +10,7 @@ with modules;
     kubectx
     awscli2
     ciEnter
+    cfZerotrust
   ];
 
   preZSH = ''
@@ -60,6 +61,7 @@ with modules;
     stop-ci = "aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters 'Name=tag:LPSD,Values=runner.systems.github-runner.instance' --output text | xargs aws ec2 stop-instances --instance-ids | cat";
     alil = "gt-alicloud-login";
     awsl = "gt-aws-login";
+    cfzt = "gt-cf-zerotrust";
     k8s-setup = "gt-k8s-setup";
     kctx = "kubectx";
     kns = "kubens";
