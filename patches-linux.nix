@@ -4,6 +4,7 @@ let modules = import ./module/default.nix { inherit nixpkgs atomi; }; in
 with modules;
 {
   tools = [
+    alicloudLogin
     awsLogin
     k8sSetup
     kubectx
@@ -58,6 +59,7 @@ with modules;
     start-ci = "aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters 'Name=tag:LPSD,Values=runner.systems.github-runner.instance' --output text | xargs aws ec2 start-instances --instance-ids | cat";
     stop-ci = "aws ec2 describe-instances --query 'Reservations[*].Instances[*].[InstanceId]' --filters 'Name=tag:LPSD,Values=runner.systems.github-runner.instance' --output text | xargs aws ec2 stop-instances --instance-ids | cat";
     update-nix = "nix flake update --flake ~/.config/home-manager";
+    alil = "gt-alicloud-login";
     awsl = "gt-aws-login";
     k8s-setup = "gt-k8s-setup";
     kctx = "kubectx";

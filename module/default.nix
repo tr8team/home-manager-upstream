@@ -6,6 +6,7 @@ let trivialBuilders = import ./trivialBuilders.nix { inherit lib stdenv stdenvNo
     inherit nixpkgs trivialBuilders;
     awsExportCreds = atomi.aws-export-credentials;
   };
+  alicloudLogin = import ./alicloudLogin/default.nix { inherit nixpkgs trivialBuilders; };
   k8sSetup = import ./k8sSetup/default.nix { inherit nixpkgs trivialBuilders atomi; };
   ciEnter = import ./ciEnter/default.nix { inherit nixpkgs trivialBuilders; };
 }
